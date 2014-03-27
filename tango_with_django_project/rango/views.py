@@ -13,12 +13,13 @@ def index(request):
 
     # obtain the top 5 categories
     category_list = Category.objects.order_by('-likes')[:5]
+    page_list = Page.objects.order_by('-views')[:5]
     # construct template variables as a dictionary
 
     for category in category_list:
         category.url = category.name.replace(' ', '_')
 
-    context_dict = {'categories' : category_list }
+    context_dict = {'categories' : category_list, 'pages' : page_list }
 
     # render it using the django shortcut
     return render_to_response('rango/index.html', context_dict, context)

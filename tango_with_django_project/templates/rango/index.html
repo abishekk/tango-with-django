@@ -14,6 +14,17 @@
 		  <li><a href ="/rango/category/{{ category.url }}/">{{ category.name }}</a></li>
 		  {% endfor %}
 		</ul>
+
+		{% if pages %}
+		<h2>Most popular pages on Rango today!</h2>
+		<ul>
+		  {% for page in pages %}
+		     <li>Views {{page.views}} <a href ="{{ page.url }}">{{ page.title }}</a></li>
+		  {% endfor %}
+		</ul>
+		{% else %}
+		<h2>No sweet pages today</h2>
+		{% endif %}
 	{% else %}
 		<strong> Why are there no categories :-( </strong>
 	{% endif %}
