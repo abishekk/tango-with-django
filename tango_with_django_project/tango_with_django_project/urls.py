@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^rango/', include('rango.urls')),
     url(r'media/(?P<path>.*)', 'django.views.static.serve', {
         'document_root' : settings.MEDIA_ROOT }),
+    url(r'^admin/', include(admin.site.urls)),
 )
 
 # urlpatterns += patterns('django.views.static',
